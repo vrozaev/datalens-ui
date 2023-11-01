@@ -3,7 +3,7 @@ import {Page} from '@playwright/test';
 import {PlaceholderName} from '../../../page-objects/wizard/SectionVisualization';
 import WizardPage from '../../../page-objects/wizard/WizardPage';
 import datalensTest from '../../../utils/playwright/globalTestDefinition';
-import {E2EWizardUrls, WizardDatasetNames} from '../../../utils/opensource/constants/wizard';
+import {E2EWizardUrls, WizardDatasetNames} from '../../../constants/wizard';
 import {
     deleteWorkbookEntry,
     openOpensourceTestPage,
@@ -11,7 +11,7 @@ import {
 } from '../../../utils/opensource/helpers';
 import {WorkbookNavigationMinimal} from '../../../page-objects/wizard/WorkbookNavigationMinimal';
 import {SaveChartControlsQa} from '../../../../src/shared';
-import {DEFAULT_WORKBOOK_ID} from '../../../utils/opensource/constants/common';
+import {DEFAULT_WORKBOOK_ID} from '../../../constants/common';
 
 datalensTest.describe('Wizard Fields', () => {
     datalensTest.beforeEach(async ({page}) => {
