@@ -956,11 +956,14 @@ export class Processor {
                     chartsEngine.flags.chartComments &&
                     (type === CONFIG_TYPE.GRAPH_NODE ||
                         type === CONFIG_TYPE.GRAPH_WIZARD_NODE ||
-                        type === CONFIG_TYPE.GRAPH_QL_NODE)
+                        type === CONFIG_TYPE.GRAPH_QL_NODE ||
+                        type === CONFIG_TYPE.TIMESERIES_QL_NODE)
                 ) {
                     try {
                         const chartName =
-                            type === CONFIG_TYPE.GRAPH_NODE || type === CONFIG_TYPE.GRAPH_QL_NODE
+                            type === CONFIG_TYPE.GRAPH_NODE ||
+                            type === CONFIG_TYPE.GRAPH_QL_NODE ||
+                            type === CONFIG_TYPE.TIMESERIES_QL_NODE
                                 ? configName
                                 : configId;
 

@@ -12,6 +12,8 @@ const CONFIG_TYPE = {
 
     GRAPH_QL_NODE: 'graph_ql_node',
 
+    TIMESERIES_QL_NODE: 'timeseries_ql_node',
+
     // deprecated
     TEXT_NODE: 'text_node',
 } as const;
