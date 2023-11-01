@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Dialog, TextInput, TextInputProps} from '@gravity-ui/uikit';
 import block from 'bem-cn-lite';
-import {DialogCreateWorkbookEntryQa} from 'shared';
+import {ComponentsQa} from 'shared';
 
 import {I18n} from '../../../../i18n';
 import logger from '../../../libs/logger';
@@ -96,7 +96,7 @@ export class DialogCreateWorkbookEntry<T> extends React.Component<
 
         return (
             <Dialog
-                qa={DialogCreateWorkbookEntryQa.Root}
+                qa={ComponentsQa.DialogCreateEntry}
                 size="s"
                 open={visible}
                 onClose={this.onClose}
@@ -111,7 +111,7 @@ export class DialogCreateWorkbookEntry<T> extends React.Component<
                             <div className={b('row')}>
                                 <span className={b('row-label')}>{i18n('label_name')}</span>
                                 <TextInput
-                                    qa={DialogCreateWorkbookEntryQa.Input}
+                                    qa={ComponentsQa.Input}
                                     controlRef={this.textInputRef}
                                     value={name}
                                     placeholder={placeholder}
@@ -125,7 +125,7 @@ export class DialogCreateWorkbookEntry<T> extends React.Component<
                 <Dialog.Footer
                     onClickButtonCancel={this.onClose}
                     onClickButtonApply={this.onApply}
-                    propsButtonApply={{qa: DialogCreateWorkbookEntryQa.ApplyButton}}
+                    propsButtonApply={{qa: ComponentsQa.ApplyButton}}
                     textButtonApply={textButtonApply}
                     textButtonCancel={textButtonCancel}
                     loading={loading}

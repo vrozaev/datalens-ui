@@ -130,3 +130,11 @@ export const enum DialogCreateWorkbookEntryQa {
     Input = 'dialog-create-workbook-entry-input',
     ApplyButton = 'dialog-create-workbook-entry-apply-button',
 }
+
+export const enum ComponentsQa {
+    NavigationMinimalPopup = 'navigation-minimal-popup',
+    DialogCreateEntry = 'dialog-create-entry',
+    Input = 'component-input',
+    ListPopup = 'component-list-popup',
+    ApplyButton = 'component-apply-button-qa',
+}

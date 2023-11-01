@@ -7,7 +7,7 @@ import {EntryIcon} from 'components/EntryIcon/EntryIcon';
 import {i18n} from 'i18n';
 import {getSdk} from 'libs/schematic-sdk';
 import moment from 'moment';
-import {EntryScope, WorkbookNavigationMinimalQa} from 'shared';
+import {ComponentsQa, EntryScope} from 'shared';
 import type {GetEntryResponse, GetWorkbookEntriesArgs} from 'shared/schema';
 import {CLUSTERS_DATE_FORMAT_DATE} from 'ui/constants/misc';
 
@@ -97,13 +97,13 @@ class WorkbookNavigationMinimal extends React.Component<Props, State> {
                 open={visible}
                 anchorRef={anchor}
                 contentClassName={b('popup')}
-                qa={WorkbookNavigationMinimalQa.Popup}
+                qa={ComponentsQa.NavigationMinimalPopup}
             >
                 {visible && (
                     <div className={b()}>
                         <div className={b('control')}>
                             <DebouncedInput
-                                qa={WorkbookNavigationMinimalQa.Input}
+                                qa={ComponentsQa.Input}
                                 value={this.state.filter}
                                 onUpdate={this.onUpdateFilter}
                                 hasClear={true}
@@ -130,6 +130,7 @@ class WorkbookNavigationMinimal extends React.Component<Props, State> {
                         {items && items.length ? (
                             <List
                                 items={items}
+                                qa={ComponentsQa.ListPopup}
                                 filterable={false}
                                 renderItem={this.renderItem}
                                 itemHeight={this.getRowHeight}
