@@ -15,7 +15,7 @@ export const openOpensourceTestPage = async (
 
     const fullUrl = query ? `${pathname}?${query}` : pathname;
 
-    await goto(page, fullUrl, {isRetry: false});
+    await goto(page, fullUrl);
 };
 
 export const saveWorkbookEntry = async (page: Page, saveButtonQa: string, entryName: string) => {
