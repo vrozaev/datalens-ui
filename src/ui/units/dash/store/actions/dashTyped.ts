@@ -11,6 +11,7 @@ import {
     DATASET_FIELD_TYPES,
     DashTab,
     DashTabItem,
+    DashTabItemControlData,
     DashTabItemControlSourceType,
     DashTabItemType,
     Dataset,
@@ -304,7 +305,10 @@ export const UPDATE_SELECTORS_GROUP = Symbol('dash/UPDATE_SELECTORS_GROUP');
 
 export const SET_ACTIVE_SELECTOR_INDEX = Symbol('dash/SET_ACTIVE_SELECTOR)INDEX');
 
-export type SelectorSourceType = 'dataset' | 'manual' | 'external';
+export type SelectorSourceType =
+    | DashTabItemControlSourceType.Dataset
+    | DashTabItemControlSourceType.Manual
+    | DashTabItemControlSourceType.External;
 
 export type SelectorElementType = 'select' | 'date' | 'input';
 
@@ -617,18 +621,20 @@ export const applyGroupControlDialog = () => {
             autoHeight: selectorGroups.autoHeight,
             buttonApply: selectorGroups.buttonApply,
             buttonReset: selectorGroups.buttonReset,
-            // FIXME: CHARTS-6728 remove any
-            items: selectorGroups.items.reduce<any>((items, selector, index) => {
-                items[selector.id] = {
-                    title: selector.title,
-                    sourceType: selector.sourceType,
-                    source: getItemDataSource(selector),
-                    placementMode: selector.placementMode,
-                    width: selector.width,
-                    index,
-                };
-                return items;
-            }, {}),
+            items: selectorGroups.items.reduce<Record<string, Partial<DashTabItemControlData>>>(
+                (items, selector, index) => {
+                    items[selector.id] = {
+                        title: selector.title,
+                        sourceType: selector.sourceType,
+                        source: getItemDataSource(selector) as DashTabItemControlData['source'],
+                        placementMode: selector.placementMode,
+                        width: selector.width,
+                        index,
+                    };
+                    return items;
+                },
+                {},
+            ),
         };
 
         dispatch(
