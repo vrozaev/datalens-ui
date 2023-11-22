@@ -1,5 +1,7 @@
 import {IncomingHttpHeaders} from 'http';
 
+import {Request, Response} from '@gravity-ui/expresskit';
+import {ApiWithRoot} from '@gravity-ui/gateway';
 import {ContextApiWithRoot} from '@gravity-ui/gateway/build/models/common';
 import {AppContext, AppContextParams} from '@gravity-ui/nodekit';
 
@@ -114,9 +116,18 @@ export const fetchDatasetFieldsById = async ({
 }): Promise<DatasetFieldsDictResponse> => {
     try {
         const {gatewayApi} = registry.getGatewayApi<DatalensGatewaySchemas>();
-        const requestDatasetFields = gatewayApi.bi.getDataSetFieldsById;
-
-        const {iamToken} = ctx.get('gateway') as AppContextParams['gateway'] & {iamToken: string};
+        const {iamToken, getDataSetFieldsById} = ctx.get(
+            'gateway',
+        ) as AppContextParams['gateway'] & {
+            iamToken: string;
+            getDataSetFieldsById?: ApiWithRoot<
+                DatalensGatewaySchemas,
+                Request['ctx'],
+                Request,
+                Response
+            >['bi']['getDataSetFieldsById'];
+        };
+        const requestDatasetFields = getDataSetFieldsById || gatewayApi.bi.getDataSetFieldsById;
 
         const data = await requestDatasetFields({
             ctx: ctx,

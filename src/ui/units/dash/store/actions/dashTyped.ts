@@ -934,7 +934,7 @@ export function loadDashDatasets(entry: Partial<DashState>, tabId: string) {
             if (dashItem.type === DashTabItemType.Widget) {
                 const chartData = dashItem.data;
                 const widgetChartIds = chartData.tabs
-                    .filter((chartTabItem) => Boolean(chartTabItem.enableActionParams))
+                    //.filter((chartTabItem) => Boolean(chartTabItem.enableActionParams))
                     ?.map((chartTabItem) => chartTabItem.chartId);
                 entriesIds = entriesIds.concat(widgetChartIds);
             }
@@ -945,7 +945,7 @@ export function loadDashDatasets(entry: Partial<DashState>, tabId: string) {
             return;
         }
 
-        const entriesDatasetsFields = await getSdk().mix.getWidgetsDatasetsFields(
+        const entriesDatasetsFields = await getSdk().mix.getPublicWidgetsDatasetsFields(
             {entriesIds},
             {concurrentId: LOAD_DASH_DATASETS_CONCURRENT_ID},
         );
