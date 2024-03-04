@@ -196,6 +196,7 @@ export const CollectionFilters = React.memo<Props>(
                     onUpdate={handleUpdateFilterString}
                     placeholder={i18n('label_filter-string-placeholder')}
                     hasClear
+                    qa="filter-entries"
                 />
 
                 <div className={b('filters-block')}>

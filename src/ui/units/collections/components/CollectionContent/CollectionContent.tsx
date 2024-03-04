@@ -303,6 +303,7 @@ export const CollectionContent: React.FC<Props> = ({
 
         if (item.permissions.update) {
             actions.push({
+                qa: 'workbook-action-edit',
                 text: <DropdownAction icon={PencilToLine} text={i18n('action_edit')} />,
                 action: () => {
                     if (item?.workbookId) {
@@ -334,6 +335,7 @@ export const CollectionContent: React.FC<Props> = ({
 
         if (item.permissions.move) {
             actions.push({
+                qa: 'workbook-action-move',
                 text: <DropdownAction icon={ArrowRight} text={i18n('action_move')} />,
                 action: () => {
                     dispatch(
@@ -355,6 +357,7 @@ export const CollectionContent: React.FC<Props> = ({
 
         if (item.permissions.copy) {
             actions.push({
+                qa: 'workbook-action-copy',
                 text: <DropdownAction icon={Copy} text={i18n('action_copy')} />,
                 action: () => {
                     dispatch(
@@ -380,6 +383,7 @@ export const CollectionContent: React.FC<Props> = ({
 
         if (collectionsAccessEnabled && item.permissions.listAccessBindings) {
             actions.push({
+                qa: 'workbook-action-access',
                 text: <DropdownAction icon={LockOpen} text={i18n('action_access')} />,
                 action: () => {
                     setDialogState(DialogState.EditWorkbookAccess);
@@ -390,6 +394,7 @@ export const CollectionContent: React.FC<Props> = ({
         const otherActions: DropdownMenuItem[] = [];
         if (item.permissions.delete) {
             otherActions.push({
+                qa: 'workbook-action-delete',
                 text: <DropdownAction icon={TrashBin} text={i18n('action_delete')} />,
                 action: () => {
                     setDialogState(DialogState.DeleteWorkbook);

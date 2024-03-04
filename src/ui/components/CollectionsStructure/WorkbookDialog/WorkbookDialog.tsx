@@ -71,6 +71,7 @@ export const WorkbookDialog = React.memo<Props>(
                             value={innerTitleValue}
                             onUpdate={setInnerTitleValue}
                             autoFocus={titleAutoFocus}
+                            qa="workbook-dialog-name"
                         />
                     </div>
                     {!isHiddenDescription && (
@@ -80,6 +81,7 @@ export const WorkbookDialog = React.memo<Props>(
                                 value={innerDescriptionValue}
                                 onUpdate={setInnerDescriptionValue}
                                 minRows={2}
+                                qa="workbook-dialog-description"
                             />
                         </div>
                     )}
@@ -90,6 +92,10 @@ export const WorkbookDialog = React.memo<Props>(
                     textButtonApply={textButtonApply}
                     propsButtonApply={{
                         disabled: !innerTitleValue,
+                        qa: 'workbook-dialog-apply',
+                    }}
+                    propsButtonCancel={{
+                        qa: 'workbook-dialog-cancel',
                     }}
                     textButtonCancel={i18n('action_cancel')}
                     loading={isLoading}
