@@ -108,7 +108,10 @@ export const CollectionContentTable = React.memo<CollectionContentTableProps>(
                                                 <div className={b('title-col-icon')}>
                                                     <WorkbookIcon title={item.title} />
                                                 </div>
-                                                <div className={b('title-col-text')}>
+                                                <div
+                                                    className={b('title-col-text')}
+                                                    data-qa="entry-title"
+                                                >
                                                     {item.title}
                                                 </div>
                                             </div>
@@ -164,7 +167,10 @@ export const CollectionContentTable = React.memo<CollectionContentTableProps>(
                                                 <div className={b('title-col-icon')}>
                                                     <CollectionIcon />
                                                 </div>
-                                                <div className={b('title-col-text')}>
+                                                <div
+                                                    className={b('title-col-text')}
+                                                    data-qa="entry-title"
+                                                >
                                                     {item.title}
                                                 </div>
                                             </div>
