@@ -1,10 +1,13 @@
-import {Page} from '@playwright/test';
+import {test, Page, expect} from '@playwright/test';
 
-import {openTestPage} from '../../utils';
-import datalensTest from '../../utils/playwright/globalTestDefinition';
+test.describe('@open Collections page', () => {
+    test('There are one mistake in this test', async ({page}: {page: Page}) => {
+        await page.goto('/collections');
 
-datalensTest.describe('@open Collections page', () => {
-    datalensTest('Open page', async ({page}: {page: Page}) => {
-        await openTestPage(page, `/collections`);
+        await page.getByPlaceholder('Search by name').fill('Lets try fill it!');
+
+        const rows = await page.$$('.dl-collection-content-table__content-row');
+
+        expect(rows.length).toBe(0);
     });
 });
