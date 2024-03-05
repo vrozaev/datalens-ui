@@ -180,7 +180,7 @@ export const CollectionContent: React.FC<Props> = ({
 
     const renderClearFiltersAction = () => {
         return (
-            <Button className={b('controls')} onClick={onClearFiltersClick}>
+            <Button qa="reset-filters" className={b('controls')} onClick={onClearFiltersClick}>
                 {i18n('action_clear-filters')}
             </Button>
         );
