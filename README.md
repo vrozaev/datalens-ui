@@ -1,60 +1,22 @@
-# DataLens
+Hello and welcome to our e2e workshop!
 
-### Prerequisites
-
+# Prerequisites
 [Install docker](https://docs.docker.com/engine/install/)
 
 [Install docker compose plugin](https://docs.docker.com/compose/install/linux/) if it not already installed
 
-### Start project in dev mode
+git clone git@github.com:vrozaev/datalens-ui.git e2e-workshop
 
-Install Node.js >= v18.17.0 manually or via [node version manager](https://github.com/nvm-sh/nvm).
+cd e2e-workshop && git checkout e2e-workshop
 
-Start project in dev mode:
+# Start backend & database:
+docker compose -f tests/docker-compose.e2e.yml -f tests/docker-compose.e2e-dev.yml up
 
-```bash
-# Start backend for datalens:
-git clone git@github.com:datalens-tech/datalens.git
-cd datalens
-docker compose -f docker-compose-dev.yml up
-
-# Start datalens ui in dev mode:
-git clone git@github.com:datalens-tech/datalens-ui.git
-cd ui
-npm ci
+# Start ui in dev mode:
+npm ci # Use next command on Apple M1: npm ci --target_arch=x64
 npm run dev
-```
 
-Now you can open datalens in dev mode at [http://localhost:3030](http://localhost:3030)
-
-### Credentials for postgres
-
-Hostname:
-
-```
-pg-demo-connection
-```
-
-Port:
-
-```
-5432
-```
-
-Path to database:
-
-```
-demo
-```
-
-Username:
-
-```
-demo
-```
-
-Password:
-
-```
-demo
-```
+# Run tests:
+npm run test:install:chromium
+npm run test:workshop
+npm run test:workshop:ui

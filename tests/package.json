@@ -7,7 +7,8 @@
   "scripts": {
     "test:install:chromium": "npx playwright install --with-deps chromium",
     "test:e2e": "npx playwright test --config=./playwright.config.ts --project=basic",
-    "test:e2e:opensource": "npx playwright test --config=./playwright.config.ts --project=opensource --ui",
+    "test:e2e:opensource": "npx playwright test --config=./playwright.config.ts --project=opensource",
+    "test:e2e:opensource:ui": "npx playwright test --config=./playwright.config.ts --project=opensource --ui",
     "deps": "bash ../scripts/cached-npm-install.sh",
     "typecheck": "tsc --noEmit",
     "lint:prettier": "prettier --check './**/*.{js,jsx,ts,tsx,json,css,scss}'"
